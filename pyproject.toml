@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "clustercheck"
+version = "0.2.0"
+description = "Slurm-launched GPU cluster qualification and admission gates"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "ClusterCheck contributors" }]
+dependencies = []
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: System :: Systems Administration",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build==1.2.2.post1",
+  "mypy==1.15.0",
+  "ruff==0.11.2",
+]
+
+[project.scripts]
+clustercheck = "clustercheck.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/clustercheck"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"slurm" = "clustercheck/slurm"
+"schemas" = "clustercheck/schemas"
+"configs" = "clustercheck/configs"
+"examples" = "clustercheck/examples"
+"docs" = "clustercheck/docs"
+"README.md" = "clustercheck/resources/README.md"
+"LICENSE" = "clustercheck/resources/LICENSE"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/clustercheck", "slurm", "schemas", "configs", "examples", "docs", "README.md", "LICENSE", "Makefile", "pyproject.toml"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["clustercheck"]
+mypy_path = "src"
