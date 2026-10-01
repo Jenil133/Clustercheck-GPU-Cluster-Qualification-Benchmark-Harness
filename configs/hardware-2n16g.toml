@@ -1,0 +1,49 @@
+# EXAMPLE ONLY: review executable paths, Slurm partition, topology, and bandwidth expectations for your fleet.
+[cluster]
+name = "production-h100"
+nodes = ["gpu001", "gpu002"]
+gpus_per_node = 8
+slurm_partition = "gpu"
+
+[tools]
+default_timeout = 900
+dcgm_command = "dcgmi diag -r 3"
+dcgm_timeout = 1800
+gpu_burn_command = "/opt/gpu-burn/gpu_burn"
+gpu_burn_seconds = 300
+# One nccl-tests rank per node, each rank driving all 8 local GPUs (16 GPUs total).
+# The Slurm fabric job owns both nodes when this command executes.
+nccl_command = "srun --nodes=2 --ntasks=2 --ntasks-per-node=1 /opt/nccl-tests/build/all_reduce_perf"
+nccl_min_bytes = "8M"
+nccl_max_bytes = "8G"
+nccl_timeout = 1200
+# A reviewed wrapper must orchestrate the perftest server/client and print a
+# BW average[Gb/sec] table. Set PEER_HOST/rail binding in the batch environment.
+ib_command = "/opt/clustercheck/bin/ib_write_bw_pair.sh"
+ib_timeout = 300
+# Increase when the site wrapper emits multiple iterations; the minimum is gated.
+ib_min_samples = 1
+nvidia_smi = "nvidia-smi"
+ibv_devinfo = "ibv_devinfo"
+
+[thresholds]
+relative_floor = 0.80
+# nccl-tests busbw is GB/s (gigabytes per second).
+expected_nccl_bus_bw_GBps = 400.0
+nccl_bus_efficiency_floor = 0.85
+require_version_match = true
+# Optional strict gate for GPU model, VBIOS, and HCA firmware sets.
+require_firmware_match = true
+
+[simulation]
+healthy_bus_efficiency = 0.92
+degraded_link_factor = 0.65
+degraded_nodes = []
+expected_bus_bw_GBps = 400.0
+expected_ib_Gbps = 200.0
+
+[quarantine]
+# Deliberately opt-in. --apply-quarantine also has to be supplied.
+enabled = false
+command = "scontrol"
+reason = "ClusterCheck regression gate failed"

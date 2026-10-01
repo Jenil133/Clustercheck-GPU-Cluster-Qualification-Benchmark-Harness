@@ -1,0 +1,43 @@
+# Every value produced with this config is synthetic and must not be represented as measured.
+[cluster]
+name = "SYNTHETIC-2-node-16-gpu-demo"
+nodes = ["synthetic-node-01", "synthetic-node-02"]
+gpus_per_node = 8
+
+[tools]
+default_timeout = 900
+dcgm_command = "dcgmi diag -r 3"
+dcgm_timeout = 1800
+gpu_burn_command = "gpu_burn"
+gpu_burn_seconds = 120
+nccl_command = "all_reduce_perf"
+nccl_min_bytes = "8M"
+nccl_max_bytes = "8G"
+nccl_timeout = 1200
+ib_command = "ib_write_bw --report_gbits"
+ib_timeout = 300
+# Require this many valid BW average rows; gate the minimum, not the maximum.
+ib_min_samples = 1
+nvidia_smi = "nvidia-smi"
+ibv_devinfo = "ibv_devinfo"
+
+[thresholds]
+relative_floor = 0.80
+# nccl-tests busbw is GB/s (gigabytes per second).
+expected_nccl_bus_bw_GBps = 400.0
+nccl_bus_efficiency_floor = 0.85
+require_version_match = true
+
+[simulation]
+# Clearly labeled demo fixture: healthy result is 92% of expected bus bandwidth.
+healthy_bus_efficiency = 0.92
+# Clearly labeled demo fixture: node 02 is approximately 35% below its healthy peer.
+degraded_link_factor = 0.65
+degraded_nodes = ["synthetic-node-02"]
+expected_bus_bw_GBps = 400.0
+expected_ib_Gbps = 200.0
+
+[quarantine]
+enabled = false
+command = "scontrol"
+reason = "ClusterCheck regression gate failed"
