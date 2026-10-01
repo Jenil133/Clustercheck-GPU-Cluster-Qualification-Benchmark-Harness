@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://clustercheck.invalid/schemas/fleet-report.schema.json", "title": "ClusterCheck fleet admission report", "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "provenance", "synthetic_notice", "baseline_id", "baseline_sha256", "baseline_source_run_id", "nodes", "findings", "admitted", "rejected", "drained", "quarantine_actions"],
+  "properties": {
+    "schema_version": {"const": "1.1"}, "run_id": {"type": "string"}, "created_at": {"type": "string", "format": "date-time"}, "provenance": {"enum": ["measured", "synthetic"]}, "synthetic_notice": {"type": ["string", "null"]}, "baseline_id": {"type": "string"}, "baseline_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "baseline_source_run_id": {"type": "string"},
+    "nodes": {"type": "object", "additionalProperties": {"enum": ["pass", "fail", "error", "skipped"]}}, "findings": {"type": "array"}, "admitted": {"type": "array", "items": {"type": "string"}}, "rejected": {"type": "array", "items": {"type": "string"}}, "drained": {"type": "array", "items": {"type": "string"}}, "quarantine_actions": {"type": "object", "additionalProperties": {"type": "string"}}
+  }, "additionalProperties": false
+}

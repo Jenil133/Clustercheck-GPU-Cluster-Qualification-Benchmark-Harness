@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clustercheck.invalid/schemas/run-manifest.schema.json",
+  "title": "ClusterCheck bound run manifest",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "updated_at", "state", "state_history", "provenance", "synthetic_notice", "synthetic_fixture", "cluster", "requested_nodes", "gpus_per_node", "requested_gpu_count", "config_name", "config_sha256", "topology_sha256", "scheduler"],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "run_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"},
+    "created_at": {"type": "string", "format": "date-time"}, "updated_at": {"type": "string", "format": "date-time"}, "completed_at": {"type": "string", "format": "date-time"},
+    "state": {"enum": ["running", "submitting", "submitted", "completed", "failed"]}, "state_history": {"type": "array", "minItems": 1}, "failure": {"type": "string"},
+    "provenance": {"enum": ["measured", "synthetic"]}, "synthetic_notice": {"type": ["string", "null"]}, "synthetic_fixture": {"type": "boolean"},
+    "cluster": {"type": "string"}, "config_name": {"type": "string"},
+    "config_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "topology_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "requested_nodes": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"}},
+    "gpus_per_node": {"type": "integer", "minimum": 1}, "requested_gpu_count": {"type": "integer", "minimum": 2}, "scheduler": {"type": "object"}
+  },
+  "additionalProperties": false
+}

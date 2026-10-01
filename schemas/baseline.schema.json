@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://clustercheck.invalid/schemas/baseline.schema.json", "title": "ClusterCheck complete fleet baseline", "type": "object",
+  "required": ["schema_version", "baseline_id", "created_at", "provenance", "synthetic_notice", "source_run_id", "source_config_sha256", "source_topology_sha256", "source_nodes", "source_manifest_state", "all_requested_nodes_passed", "metrics", "versions"],
+  "properties": {
+    "schema_version": {"const": "1.1"}, "baseline_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"}, "created_at": {"type": "string", "format": "date-time"}, "provenance": {"enum": ["measured", "synthetic"]}, "synthetic_notice": {"type": ["string", "null"]},
+    "source_run_id": {"type": "string"}, "source_config_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "source_topology_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_nodes": {"type": "array", "minItems": 2, "uniqueItems": true}, "source_manifest_state": {"const": "completed"}, "all_requested_nodes_passed": {"const": true},
+    "metrics": {"type": "object", "required": ["gpu_burn_gflops", "nccl_bus_bw_GBps", "ib_bandwidth_Gbps"]}, "versions": {"type": "object"}
+  }, "additionalProperties": false
+}

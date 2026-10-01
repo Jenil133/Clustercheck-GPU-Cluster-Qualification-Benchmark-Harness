@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "https://clustercheck.invalid/schemas/fabric-result.schema.json", "title": "ClusterCheck allocation-wide fabric evidence", "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "provenance", "config_sha256", "topology_sha256", "scope", "participants", "allocated_nodes", "allocation_node_count", "topology_count_verified", "rank_gpu_mapping_verified", "limitation", "check"],
+  "properties": {
+    "schema_version": {"const": "1.1"}, "run_id": {"type": "string"}, "created_at": {"type": "string", "format": "date-time"}, "provenance": {"enum": ["measured", "synthetic"]}, "synthetic_notice": {"type": ["string", "null"]},
+    "config_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "topology_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "scope": {"const": "allocation-wide"},
+    "participants": {"type": "array", "minItems": 2, "uniqueItems": true}, "allocated_nodes": {"type": "array", "minItems": 2, "uniqueItems": true}, "allocation_node_count": {"type": "integer", "minimum": 2},
+    "topology_count_verified": {"type": "boolean"}, "rank_gpu_mapping_verified": {"const": false}, "limitation": {"type": "string"}, "check": {"type": "object"}
+  }, "additionalProperties": false
+}
