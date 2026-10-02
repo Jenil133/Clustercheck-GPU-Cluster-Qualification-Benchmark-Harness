@@ -1,0 +1,50 @@
+{
+  "all_requested_nodes_passed": true,
+  "baseline_id": "SYNTHETIC-DEMO-BASELINE",
+  "created_at": "2026-10-04T08:53:11.122830+00:00",
+  "metrics": {
+    "gpu_burn_gflops": {
+      "median": 58000.0,
+      "samples": 2,
+      "scope": "node-local"
+    },
+    "ib_bandwidth_Gbps": {
+      "median": 196.0,
+      "samples": 2,
+      "scope": "node-local"
+    },
+    "nccl_bus_bw_GBps": {
+      "median": 368.0,
+      "samples": 1,
+      "scope": "allocation-wide"
+    }
+  },
+  "provenance": "synthetic",
+  "schema_version": "1.1",
+  "source_config_sha256": "1e0915373c521dca8c56679e846ef72509a3d29ce788bedd7c3c53490e9acda2",
+  "source_manifest_state": "completed",
+  "source_nodes": [
+    "synthetic-node-01",
+    "synthetic-node-02"
+  ],
+  "source_run_id": "synthetic-demo-baseline-fixture",
+  "source_topology_sha256": "8849e784088e4aabc4e616338b1ed9391148bd48d8c519a85a8eb51ee52b75ad",
+  "synthetic_notice": "SYNTHETIC DATA: deterministic fixture only; no GPU, Slurm, DCGM, NCCL, or InfiniBand hardware execution occurred.",
+  "versions": {
+    "cuda_version": [
+      "SYNTHETIC-12.4"
+    ],
+    "driver_version": [
+      "SYNTHETIC-550.54.15"
+    ],
+    "gpu_firmware": [
+      "SYNTHETIC-96.00.5E.00.01"
+    ],
+    "gpu_models": [
+      "SYNTHETIC NVIDIA H100 80GB HBM3"
+    ],
+    "ib_firmware": [
+      "SYNTHETIC-28.39.1002"
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "checks": [
+    {
+      "evidence": null,
+      "metrics": {},
+      "name": "dcgm_diagnostic",
+      "status": "pass",
+      "summary": "SYNTHETIC fixture; no hardware command executed"
+    },
+    {
+      "evidence": null,
+      "metrics": {
+        "gpu_burn_gflops": 58000.0
+      },
+      "name": "gpu_burn",
+      "status": "pass",
+      "summary": "SYNTHETIC fixture; no hardware command executed"
+    },
+    {
+      "evidence": null,
+      "metrics": {
+        "ib_bandwidth_Gbps": 196.0,
+        "ib_samples_parsed": 1.0
+      },
+      "name": "ib_bandwidth",
+      "status": "pass",
+      "summary": "SYNTHETIC fixture; no hardware command executed"
+    }
+  ],
+  "completed_at": "2026-10-04T08:53:11.118184+00:00",
+  "config_sha256": "1e0915373c521dca8c56679e846ef72509a3d29ce788bedd7c3c53490e9acda2",
+  "inventory": {
+    "cuda_version": "SYNTHETIC-12.4",
+    "driver_version": "SYNTHETIC-550.54.15",
+    "gpu_firmware": [
+      "SYNTHETIC-96.00.5E.00.01",
+      "SYNTHETIC-96.00.5E.00.01",
+      "SYNTHETIC-96.00.5E.00.01",
+      "SYNTHETIC-96.00.5E.00.01",
+      "SYNTHETIC-96.00.5E.00.01",
+      "SYNTHETIC-96.00.5E.00.01",
+      "SYNTHETIC-96.00.5E.00.01",
+      "SYNTHETIC-96.00.5E.00.01"
+    ],
+    "gpu_models": [
+      "SYNTHETIC NVIDIA H100 80GB HBM3",
+      "SYNTHETIC NVIDIA H100 80GB HBM3",
+      "SYNTHETIC NVIDIA H100 80GB HBM3",
+      "SYNTHETIC NVIDIA H100 80GB HBM3",
+      "SYNTHETIC NVIDIA H100 80GB HBM3",
+      "SYNTHETIC NVIDIA H100 80GB HBM3",
+      "SYNTHETIC NVIDIA H100 80GB HBM3",
+      "SYNTHETIC NVIDIA H100 80GB HBM3"
+    ],
+    "gpus": [
+      {
+        "index": 0,
+        "memory_mib": 81920.0,
+        "model": "SYNTHETIC NVIDIA H100 80GB HBM3",
+        "pci_bus_id": "SYNTHETIC-00:00.0",
+        "uuid": "SYNTHETIC-GPU-00",
+        "vbios": "SYNTHETIC-96.00.5E.00.01"
+      },
+      {
+        "index": 1,
+        "memory_mib": 81920.0,
+        "model": "SYNTHETIC NVIDIA H100 80GB HBM3",
+        "pci_bus_id": "SYNTHETIC-01:00.0",
+        "uuid": "SYNTHETIC-GPU-01",
+        "vbios": "SYNTHETIC-96.00.5E.00.01"
+      },
+      {
+        "index": 2,
+        "memory_mib": 81920.0,
+        "model": "SYNTHETIC NVIDIA H100 80GB HBM3",
+        "pci_bus_id": "SYNTHETIC-02:00.0",
+        "uuid": "SYNTHETIC-GPU-02",
+        "vbios": "SYNTHETIC-96.00.5E.00.01"
+      },
+      {
+        "index": 3,
+        "memory_mib": 81920.0,
+        "model": "SYNTHETIC NVIDIA H100 80GB HBM3",
+        "pci_bus_id": "SYNTHETIC-03:00.0",
+        "uuid": "SYNTHETIC-GPU-03",
+        "vbios": "SYNTHETIC-96.00.5E.00.01"
+      },
+      {
+        "index": 4,
+        "memory_mib": 81920.0,
+        "model": "SYNTHETIC NVIDIA H100 80GB HBM3",
+        "pci_bus_id": "SYNTHETIC-04:00.0",
+        "uuid": "SYNTHETIC-GPU-04",
+        "vbios": "SYNTHETIC-96.00.5E.00.01"
+      },
+      {
+        "index": 5,
+        "memory_mib": 81920.0,
+        "model": "SYNTHETIC NVIDIA H100 80GB HBM3",
+        "pci_bus_id": "SYNTHETIC-05:00.0",
+        "uuid": "SYNTHETIC-GPU-05",
+        "vbios": "SYNTHETIC-96.00.5E.00.01"
+      },
+      {
+        "index": 6,
+        "memory_mib": 81920.0,
+        "model": "SYNTHETIC NVIDIA H100 80GB HBM3",
+        "pci_bus_id": "SYNTHETIC-06:00.0",
+        "uuid": "SYNTHETIC-GPU-06",
+        "vbios": "SYNTHETIC-96.00.5E.00.01"
+      },
+      {
+        "index": 7,
+        "memory_mib": 81920.0,
+        "model": "SYNTHETIC NVIDIA H100 80GB HBM3",
+        "pci_bus_id": "SYNTHETIC-07:00.0",
+        "uuid": "SYNTHETIC-GPU-07",
+        "vbios": "SYNTHETIC-96.00.5E.00.01"
+      }
+    ],
+    "hostname": "synthetic-node-01",
+    "ib_devices": [
+      "SYNTHETIC-mlx5_0"
+    ],
+    "ib_firmware": {
+      "SYNTHETIC-mlx5_0": "SYNTHETIC-28.39.1002"
+    },
+    "kernel": "SYNTHETIC-6.5.0"
+  },
+  "node": "synthetic-node-01",
+  "overall_status": "pass",
+  "provenance": "synthetic",
+  "run_id": "synthetic-demo",
+  "schema_version": "1.1",
+  "started_at": "2026-10-04T08:53:11.118163+00:00",
+  "synthetic_notice": "SYNTHETIC DATA: deterministic fixture only; no GPU, Slurm, DCGM, NCCL, or InfiniBand hardware execution occurred."
+}

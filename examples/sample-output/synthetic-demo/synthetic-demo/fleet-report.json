@@ -1,0 +1,167 @@
+{
+  "admitted": [],
+  "baseline_id": "SYNTHETIC-DEMO-BASELINE",
+  "baseline_sha256": "b380de101901ee8cfd602c22f23ca514c08497cee1d5e2ed96c830fecda1be26",
+  "baseline_source_run_id": "synthetic-demo-baseline-fixture",
+  "created_at": "2026-10-04T08:53:11.123515+00:00",
+  "drained": [],
+  "findings": [
+    {
+      "baseline": null,
+      "metric": "gpu_identity_cardinality",
+      "node": "synthetic-node-01",
+      "observed": null,
+      "reason": "exact unique per-GPU index/UUID/PCI/model/firmware coverage",
+      "status": "pass",
+      "threshold": null
+    },
+    {
+      "baseline": null,
+      "metric": "required_node_checks",
+      "node": "synthetic-node-01",
+      "observed": null,
+      "reason": "all required node-local checks are present",
+      "status": "pass",
+      "threshold": null
+    },
+    {
+      "baseline": null,
+      "metric": "hostname_binding",
+      "node": "synthetic-node-01",
+      "observed": null,
+      "reason": "inventory hostname is bound to requested node",
+      "status": "pass",
+      "threshold": null
+    },
+    {
+      "baseline": 58000.0,
+      "metric": "gpu_burn_gflops",
+      "node": "synthetic-node-01",
+      "observed": 58000.0,
+      "reason": "node-local: at or above regression floor",
+      "status": "pass",
+      "threshold": 46400.0
+    },
+    {
+      "baseline": 196.0,
+      "metric": "ib_bandwidth_Gbps",
+      "node": "synthetic-node-01",
+      "observed": 196.0,
+      "reason": "node-local: at or above regression floor",
+      "status": "pass",
+      "threshold": 156.8
+    },
+    {
+      "baseline": 368.0,
+      "metric": "nccl_bus_bw_GBps",
+      "node": "synthetic-node-01",
+      "observed": 239.2,
+      "reason": "allocation-wide; conservatively rejects every participant: missing evidence or below regression floor",
+      "status": "fail",
+      "threshold": 340.0
+    },
+    {
+      "baseline": null,
+      "metric": "driver_version",
+      "node": "synthetic-node-01",
+      "observed": null,
+      "reason": "matches baseline",
+      "status": "pass",
+      "threshold": null
+    },
+    {
+      "baseline": null,
+      "metric": "cuda_version",
+      "node": "synthetic-node-01",
+      "observed": null,
+      "reason": "matches baseline",
+      "status": "pass",
+      "threshold": null
+    },
+    {
+      "baseline": null,
+      "metric": "gpu_identity_cardinality",
+      "node": "synthetic-node-02",
+      "observed": null,
+      "reason": "exact unique per-GPU index/UUID/PCI/model/firmware coverage",
+      "status": "pass",
+      "threshold": null
+    },
+    {
+      "baseline": null,
+      "metric": "required_node_checks",
+      "node": "synthetic-node-02",
+      "observed": null,
+      "reason": "all required node-local checks are present",
+      "status": "pass",
+      "threshold": null
+    },
+    {
+      "baseline": null,
+      "metric": "hostname_binding",
+      "node": "synthetic-node-02",
+      "observed": null,
+      "reason": "inventory hostname is bound to requested node",
+      "status": "pass",
+      "threshold": null
+    },
+    {
+      "baseline": 58000.0,
+      "metric": "gpu_burn_gflops",
+      "node": "synthetic-node-02",
+      "observed": 57900.0,
+      "reason": "node-local: at or above regression floor",
+      "status": "pass",
+      "threshold": 46400.0
+    },
+    {
+      "baseline": 196.0,
+      "metric": "ib_bandwidth_Gbps",
+      "node": "synthetic-node-02",
+      "observed": 130.0,
+      "reason": "node-local: missing evidence or below regression floor",
+      "status": "fail",
+      "threshold": 156.8
+    },
+    {
+      "baseline": 368.0,
+      "metric": "nccl_bus_bw_GBps",
+      "node": "synthetic-node-02",
+      "observed": 239.2,
+      "reason": "allocation-wide; conservatively rejects every participant: missing evidence or below regression floor",
+      "status": "fail",
+      "threshold": 340.0
+    },
+    {
+      "baseline": null,
+      "metric": "driver_version",
+      "node": "synthetic-node-02",
+      "observed": null,
+      "reason": "matches baseline",
+      "status": "pass",
+      "threshold": null
+    },
+    {
+      "baseline": null,
+      "metric": "cuda_version",
+      "node": "synthetic-node-02",
+      "observed": null,
+      "reason": "matches baseline",
+      "status": "pass",
+      "threshold": null
+    }
+  ],
+  "nodes": {
+    "synthetic-node-01": "fail",
+    "synthetic-node-02": "fail"
+  },
+  "provenance": "synthetic",
+  "quarantine_actions": {},
+  "rejected": [
+    "synthetic-node-01",
+    "synthetic-node-02"
+  ],
+  "run_id": "synthetic-demo",
+  "schema_version": "1.1",
+  "synthetic_notice": "SYNTHETIC DATA: deterministic fixture only; no GPU, Slurm, DCGM, NCCL, or InfiniBand hardware execution occurred."
+}

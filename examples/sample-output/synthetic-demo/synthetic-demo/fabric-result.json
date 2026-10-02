@@ -1,0 +1,32 @@
+{
+  "allocated_nodes": [
+    "synthetic-node-01",
+    "synthetic-node-02"
+  ],
+  "allocation_node_count": 2,
+  "check": {
+    "evidence": null,
+    "metrics": {
+      "nccl_bus_bw_GBps": 239.2,
+      "nccl_sizes_parsed": 11.0
+    },
+    "name": "nccl_all_reduce",
+    "status": "pass",
+    "summary": "SYNTHETIC allocation-wide fixture; no hardware command executed; not node-local"
+  },
+  "config_sha256": "1e0915373c521dca8c56679e846ef72509a3d29ce788bedd7c3c53490e9acda2",
+  "created_at": "2026-10-04T08:53:11.119353+00:00",
+  "limitation": "ClusterCheck verifies configured topology/allocation count, not rank-to-host/GPU mapping from nccl-tests output.",
+  "participants": [
+    "synthetic-node-01",
+    "synthetic-node-02"
+  ],
+  "provenance": "synthetic",
+  "rank_gpu_mapping_verified": false,
+  "run_id": "synthetic-demo",
+  "schema_version": "1.1",
+  "scope": "allocation-wide",
+  "synthetic_notice": "SYNTHETIC DATA: deterministic fixture only; no GPU, Slurm, DCGM, NCCL, or InfiniBand hardware execution occurred.",
+  "topology_count_verified": true,
+  "topology_sha256": "8849e784088e4aabc4e616338b1ed9391148bd48d8c519a85a8eb51ee52b75ad"
+}

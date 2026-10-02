@@ -1,0 +1,36 @@
+{
+  "cluster": "SYNTHETIC-2-node-16-gpu-demo",
+  "completed_at": "2026-10-04T08:53:11.122469+00:00",
+  "config_name": "synthetic-demo.toml",
+  "config_sha256": "1e0915373c521dca8c56679e846ef72509a3d29ce788bedd7c3c53490e9acda2",
+  "created_at": "2026-10-04T08:53:11.120496+00:00",
+  "gpus_per_node": 8,
+  "provenance": "synthetic",
+  "requested_gpu_count": 16,
+  "requested_nodes": [
+    "synthetic-node-01",
+    "synthetic-node-02"
+  ],
+  "run_id": "synthetic-demo-baseline-fixture",
+  "scheduler": {
+    "admission_job_id": null,
+    "fabric_job_id": null,
+    "worker_job_ids": {}
+  },
+  "schema_version": "1.1",
+  "state": "completed",
+  "state_history": [
+    {
+      "at": "2026-10-04T08:53:11.120504+00:00",
+      "state": "running"
+    },
+    {
+      "at": "2026-10-04T08:53:11.122471+00:00",
+      "state": "completed"
+    }
+  ],
+  "synthetic_fixture": true,
+  "synthetic_notice": "SYNTHETIC DATA: deterministic fixture only; no GPU, Slurm, DCGM, NCCL, or InfiniBand hardware execution occurred.",
+  "topology_sha256": "8849e784088e4aabc4e616338b1ed9391148bd48d8c519a85a8eb51ee52b75ad",
+  "updated_at": "2026-10-04T08:53:11.122470+00:00"
+}
